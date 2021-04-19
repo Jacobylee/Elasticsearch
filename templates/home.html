@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+            body {
+                background-color: white;
+            }
+            h3 {
+                text-align:center;
+                font-size:500%;
+                margin:15% 0 0 0;
+            }
+            form {
+                text-align:center;
+                font-size:200%;
+                margin: 5% 0 0 0;
+            }
+    </style>
+    <title>Washington Post Search</title>
+</head>
+<body>
+
+<h3>Washington Post Search</h3>
+
+<form action="{{ url_for('results') }}" name="search" method="post">
+    <label for="query">Query:</label>
+    <input type="text" id="query" name="query" size=50>
+    <div>
+        <input type="radio" id="Choice1"
+         name="searchway" value="bm25deault" checked>
+        <label for="Choice1">BM25+default analyzer</label>
+
+        <input type="radio" id="Choice2"
+         name="searchway" value="bm25custom">
+        <label for="Choice2">BM25+custom analyzer</label>
+
+        <input type="radio" id="Choice3"
+         name="searchway" value="fastText">
+        <label for="Choice3">fastText+default analyzer</label>
+
+        <input type="radio" id="Choice4"
+         name="searchway" value="BERT">
+        <label for="Choice4">BERT+default analyzer</label>
+    </div>
+    <input type="submit" value="Search">
+</form>
+
+</body>
+</html>

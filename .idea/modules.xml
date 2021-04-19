@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../114B/PA4/.idea/PA4.iml" filepath="$PROJECT_DIR$/../../../114B/PA4/.idea/PA4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Assignment4-VectorSpaceIRSystem/pa4/.idea/pa4.iml" filepath="$PROJECT_DIR$/../../Assignment4-VectorSpaceIRSystem/pa4/.idea/pa4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pa5_official.iml" filepath="$PROJECT_DIR$/.idea/pa5_official.iml" />
+    </modules>
+  </component>
+</project>
