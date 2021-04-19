@@ -12,7 +12,7 @@ from elasticsearch_dsl import (  # type: ignore
 custom_analyzer = analyzer(
         "custom_analyzer",
         tokenizer="standard",
-        filter=["lowercase"]
+        filter=["lowercase", "asciifolding", "snowball"]
 )
 
 

@@ -22,7 +22,11 @@ if __name__ == "__main__":
         tokenizer="standard",
         filter=["asciifolding"],
     )
-    response = my_analyzer2.simulate("açaí à HA la carte")
-
+    custom_analyzer = analyzer(
+        "custom_analyzer",
+        tokenizer="standard",
+        filter=["lowercase", "asciifolding", "snowball"]
+    )
+    response = custom_analyzer.simulate("açaí à HA la carte")
     tokens = [t.token for t in response.tokens]
     print(tokens)
