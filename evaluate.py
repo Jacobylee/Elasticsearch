@@ -43,6 +43,7 @@ def search(topic_id, index, k, custom, vector, q):
                 doc_ids.append(int(es.get(index=index, id=i[0])['_source']['annotation'].split('-')[1]))
             else:
                 doc_ids.append(0)
+    print(doc_ids)
     return doc_ids
 
 
@@ -74,7 +75,7 @@ if __name__ == "__main__":
     # searched_result = search(str(args.topic_id), args.index_name, args.top_k, args.usermode, args.vector_name, query)
     # score = Score
     # print(score.eval(searched_result, args.top_k))
-    q = 1
+    q = 2
     query0 = parse_wapo_topics("pa5_data/topics2018.xml")["321"][q]
     searched_result0 = search('321', args.index_name, args.top_k, args.usermode, args.vector_name, query0)
 
