@@ -16,7 +16,7 @@ def home():
 
 # result page
 @app.route("/results", methods=["POST"])
-def results():  # todo custom not working, cannot get details by id in result page
+def results():  # todo custom not working
     query = request.form["query"]  # Get the raw user query from home page
     global query_fix
     query_fix = query
@@ -53,6 +53,7 @@ def results():  # todo custom not working, cannot get details by id in result pa
             cs = cosine_similarity(query_vector, embed_vec)
             doc_list[doc['_id']] = cs
         ordered_doc = sorted(doc_list.items(), key=lambda kv: (kv[1], kv[0]))
+        ordered_doc.reverse()
         doc_ids = [i[0] for i in ordered_doc]
     # get result
     for d in doc_ids:
