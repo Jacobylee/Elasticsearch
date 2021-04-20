@@ -88,8 +88,8 @@ if __name__ == "__main__":
     query3 = parse_wapo_topics("pa5_data/topics2018.xml")["347"][q]
     searched_result3 = search('347', args.index_name, args.top_k, args.usermode, args.vector_name, query3)
 
-    query4 = parse_wapo_topics("pa5_data/topics2018.xml")["350"][q]
-    searched_result4 = search('350', args.index_name, args.top_k, args.usermode, args.vector_name, query4)
+    query4 = parse_wapo_topics("pa5_data/topics2018.xml")["397"][q]
+    searched_result4 = search('397', args.index_name, args.top_k, args.usermode, args.vector_name, query4)
 
     score = Score
     print(score.eval(searched_result0, args.top_k))
