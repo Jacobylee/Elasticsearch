@@ -8,7 +8,9 @@ python -m embedding_service.server --embedding sbert  --model msmarco-distilbert
 python load_es_index.py --index_name wapo_docs_50k --wapo_path pa5_data/subset_wapo_50k_sbert_ft_filtered.jl
 
 # use title from topic 321 as the query; search over the custom_content field from index "wapo_docs_50k" based on BM25 and compute NDCG@20
-python evaluate.py --index_name wapo_docs_50k --topic_id 321 --query_type title -u --top_k 20
+python evaluate.py --index_name wapo_docs_50k --topic_id 690 --query_type title -u --top_k 20
+python evaluate.py --index_name wapo_docs_50k --topic_id 690 --query_type title --top_k 20
 
 # use narration from topic 321 as the query; search over the content field from index "wapo_docs_50k" based on sentence BERT embedding and compute NDCG@20
-python evaluate.py --index_name wapo_docs_50k --topic_id 321 --query_type narration --vector_name sbert_vector --top_k 20
+python evaluate.py --index_name wapo_docs_50k --topic_id 690 --query_type narration --vector_name sbert_vector --top_k 20
+python evaluate.py --index_name wapo_docs_50k --topic_id 690 --query_type narration --vector_name ft_vector --top_k 20

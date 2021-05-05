@@ -27,10 +27,16 @@ def results():
     doc_ids.clear()
     # apply search way
     if searchway == "bm25deault":   # BM25 + default analyzer
-        result = es.search(index=index_file, size=20, body={"query": {"match": {"content": query}}})
+        result = es.search(index=index_file, size=500, body={"query": {"match": {"content": query}}})
         doc_ids = []
+        a = []
         for doc in result['hits']['hits']:
+            a.append(doc['_source']['annotation'])
             doc_ids.append(doc['_id'])
+        print(a.count("690-2"))
+        print(a.count("690-1"))
+        print(a.count("690-0"))
+
     elif searchway == "bm25custom":    # BM25 + custom analyzer
         result = es.search(index=index_file, size=20, body={"query": {"match": {"custom_content": query}}})
         doc_ids = []
@@ -43,10 +49,27 @@ def results():
             encoder = EmbeddingClient(host="localhost", embedding_type="sbert")
         query_vector = encoder.encode([query], pooling="mean").tolist()[0]
         # get result
-        result = es.search(index=index_file, size=20, body={"query": {"match": {"content": query}}})
+        c_result = es.search(index=index_file, size=40, body={"query": {"match": {"content": query}}})  # todo k
+        t_result = es.search(index=index_file, size=40, body={
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "match": {
+                                "title": {
+                                    "query": query,
+                                    "boost": 0.5
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "explain": True
+        })  # todo k
         doc_list = {}
-        for doc in result['hits']['hits']:
-            if searchway == "fastText": # Bert + default analyzer
+        for doc in c_result['hits']['hits']+t_result['hits']['hits']:
+            if searchway == "fastText":     # Bert + default analyzer
                 embed_vec = doc['_source']['ft_vector']
             else:   # fastText + default analyzer
                 embed_vec = doc['_source']['sbert_vector']

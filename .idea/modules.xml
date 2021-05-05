@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../114B/PA4/.idea/PA4.iml" filepath="$PROJECT_DIR$/../../../114B/PA4/.idea/PA4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../114B/PA/PA5/.idea/PA5.iml" filepath="$PROJECT_DIR$/../../../114B/PA/PA5/.idea/PA5.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Assignment4-VectorSpaceIRSystem/pa4/.idea/pa4.iml" filepath="$PROJECT_DIR$/../../Assignment4-VectorSpaceIRSystem/pa4/.idea/pa4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pa5_official.iml" filepath="$PROJECT_DIR$/.idea/pa5_official.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/pytorch_tutorial/.idea/pytorch_tutorial.iml" filepath="$USER_HOME$/PycharmProjects/pytorch_tutorial/.idea/pytorch_tutorial.iml" />
     </modules>
   </component>
 </project>

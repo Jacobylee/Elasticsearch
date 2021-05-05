@@ -52,6 +52,7 @@ class ESIndex(object):
             es_doc.custom_content = doc["content_str"]  # TODO: uncomment this to use custom analyzer on this field
             es_doc.annotation = doc["annotation"]
             es_doc.date = doc["published_date"]
+            es_doc.keyword = "college"
             es_doc.ft_vector = doc["ft_vector"]
             es_doc.sbert_vector = doc["sbert_vector"]
             yield es_doc

@@ -7,6 +7,9 @@
     <orderEntry type="module" module-name="PA4" />
     <orderEntry type="module" module-name="PA4" />
     <orderEntry type="module" module-name="pa4" />
+    <orderEntry type="module" module-name="pytorch_tutorial" />
+    <orderEntry type="module" module-name="pytorch_tutorial" />
+    <orderEntry type="module" module-name="PA5" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />
