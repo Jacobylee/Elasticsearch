@@ -16,7 +16,7 @@ def home():
 
 # result page
 @app.route("/results", methods=["POST"])
-def results():  # todo custom not working
+def results():
     query = request.form["query"]  # Get the raw user query from home page
     global query_fix
     query_fix = query
