@@ -1,3 +1,4 @@
+# 方法1
 import heapq
 import numpy as np
 from nltk import word_tokenize
@@ -43,11 +44,12 @@ def search(topic_id, index, k, model, vector, q, analyzer):
         # response = analyzer.simulate(doc['_source']['content'])
         # custom_content = " ".join([t.token for t in response.tokens])
         # using top 20 largest tfidf term for doc
-        if doc['_source']['title']:
-            embed_vec = 5 * np.array(doc_embedding(10, model, doc['_source']['content'])) + np.array(doc['_source']['ft_vector']) + 10 * np.array(doc_embedding(10, model, doc['_source']['title']))
-        else:
-            embed_vec = 5 * np.array(doc_embedding(10, model, doc['_source']['content'])) + np.array(
-                doc['_source']['ft_vector'])
+
+        # if doc['_source']['title']:
+        #     embed_vec = 5 * np.array(doc_embedding(10, model, doc['_source']['content'])) + np.array(doc['_source']['ft_vector']) + 2 * np.array(doc_embedding(10, model, doc['_source']['title']))
+        # else:
+
+        embed_vec = 5 * np.array(doc_embedding(10, model, doc['_source']['content'])) + np.array(doc['_source']['ft_vector'])
         cs = cosine_similarity(query_vector, embed_vec)
         doc_list[doc['_id']] = cs
     ordered_doc = sorted(doc_list.items(), key=lambda kv: (kv[1], kv[0]))
